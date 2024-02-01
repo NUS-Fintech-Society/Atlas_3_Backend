@@ -16,8 +16,31 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.http import HttpResponse
+from django.urls import include, path
+from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
+
+from ninja import NinjaAPI
+
+api = NinjaAPI(csrf=True)
+
+api.add_router("auth/", "auth.api.router")
+
+
+@api.get("/resource")
+def resource(request):
+    return {"result": "Hello Django!"}
+
+
+@api.post("/csrf")
+@ensure_csrf_cookie
+@csrf_exempt
+def get_csrf_token(request):
+    return HttpResponse()
+
 
 urlpatterns = [
+    path("auth/", include("auth.urls")),
     path("admin/", admin.site.urls),
+    path("", api.urls),
 ]
