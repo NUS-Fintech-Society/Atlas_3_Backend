@@ -1,5 +1,3 @@
-from django.contrib.auth import authenticate, login as django_login
-
 from ninja import Router
 from ninja.security import django_auth
 
