@@ -130,6 +130,8 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # CORS Headers
+CORS_ALLOW_CREDENTIALS = True
+
 FRONTEND_PORT = 5173
 
 CORS_ALLOWED_ORIGINS = []
