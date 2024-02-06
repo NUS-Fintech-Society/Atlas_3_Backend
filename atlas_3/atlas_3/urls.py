@@ -16,9 +16,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.http import HttpResponse
 from django.urls import include, path
-from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 
 from ninja import NinjaAPI
 
