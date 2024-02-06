@@ -4,6 +4,7 @@ from django.contrib.auth import (
     logout as django_logout,
 )
 from django.http import HttpResponse, HttpResponseForbidden
+from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 
 
 def login(request):
@@ -21,4 +22,10 @@ def login(request):
 
 def logout(request):
     django_logout(request)
+    return HttpResponse()
+
+
+@ensure_csrf_cookie
+@csrf_exempt
+def get_csrf_token(request):
     return HttpResponse()
