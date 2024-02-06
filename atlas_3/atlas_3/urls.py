@@ -30,13 +30,6 @@ def resource(request):
     return {"result": "Hello Django!"}
 
 
-@api.post("/csrf")
-@ensure_csrf_cookie
-@csrf_exempt
-def get_csrf_token(request):
-    return HttpResponse()
-
-
 urlpatterns = [
     path("auth/", include("auth.urls")),
     path("admin/", admin.site.urls),
