@@ -30,6 +30,19 @@ The tech stack used is Django with Django-Ninja package running on Python 3.12.
    ```shell
    cd atlas_3
    ```
+9. In `atlas_3/settings.py`. Change this database setting:
+    ```
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "atlas_3",
+            "USER": "postgres",
+            "PASSWORD": "<YOUR PASSWORD>",
+            "HOST": "localhost",
+            "PORT": "5433",
+        }
+    }
+    ```
 9. Run the migrations for the database
    ```shell
    python manage.py migrate
