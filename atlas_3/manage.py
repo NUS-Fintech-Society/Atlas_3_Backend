@@ -3,8 +3,18 @@
 import os
 import sys
 
+from pathlib import Path
+
+import dotenv
+
 
 def main():
+    base_dir = Path(__file__).resolve().parent.parent
+    env_file = base_dir / ".env"
+    if not env_file.exists():
+        raise FileNotFoundError(f"Did you create a .env file in {base_dir}?")
+    dotenv.read_dotenv(env_file.resolve())
+
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "atlas_3.settings")
     try:
