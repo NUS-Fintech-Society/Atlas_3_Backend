@@ -13,11 +13,11 @@ The tech stack used is Django with Django-Ninja package running on Python 3.12.
 
     On Unix/macOS
     ```shell
-   source .venv/bin/activate
+   source ./venv/bin/activate
     ```
    On Windows
     ```shell
-   py -m venv .venv
+   .\venv\Scripts\activate.bat
     ```
 4. Install the required packages
    ```shell
