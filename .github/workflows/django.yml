@@ -40,7 +40,7 @@ jobs:
           echo DB_USER=postgres >> .env
           echo DB_PASSWORD=postgres >> .env
           echo DB_PORT=5432 >> .env
-
+          cat .env
 
       - name: Install dependencies
         run: |
@@ -50,4 +50,4 @@ jobs:
       - name: Run Tests
         run: |
           cd ./atlas_3
-          python manage.py test
+          python manage.py test --verbosity=2
