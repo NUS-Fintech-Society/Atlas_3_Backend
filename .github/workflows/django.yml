@@ -2,10 +2,12 @@ name: Atlas 3.0 Backend CI
 
 on:
   pull_request:
-    branches: ["main", "epic/*"]
+    branches:
+      - main
+      - epic/*
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
 
@@ -27,14 +29,16 @@ jobs:
           --health-retries 5
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out Git repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
 
-      - name: Make .env file
+      - name: Set up environment variable file
         run: |
           touch .env
           echo DB_USER=postgres >> .env

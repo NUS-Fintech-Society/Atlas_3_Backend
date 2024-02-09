@@ -1,0 +1,29 @@
+name: Linter
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-linters:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+          cache: pip
+
+      - name: Install Python dependencies
+        run: pip install black
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          black: true
