@@ -17,8 +17,6 @@ jobs:
         # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        ports:
-          - 5432:5432
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -40,7 +38,7 @@ jobs:
           echo DB_USER=postgres >> .env
           echo DB_PASSWORD=postgres >> .env
           echo DB_PORT=5432 >> .env
-          echo DB_HOST=postgres >> .env
+
 
       - name: Install dependencies
         run: |
