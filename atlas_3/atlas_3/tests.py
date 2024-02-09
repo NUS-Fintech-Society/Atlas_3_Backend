@@ -6,6 +6,6 @@ class DemoTestCase(TestCase):
         self.client = Client()
 
     def test_can_get_resource(self):
-        response = self.client.get('/resource')
+        response = self.client.get("/resource")
         self.assertEqual(response.status_code, 200)
-        self.assertJSONEqual(response.content, {'result': 'Hello Django!'})
+        self.assertJSONEqual(response.content, {"result": "Hello Django!"})
