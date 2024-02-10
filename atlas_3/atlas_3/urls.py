@@ -22,7 +22,7 @@ from ninja import NinjaAPI
 
 api = NinjaAPI(csrf=True)
 
-api.add_router("auth/", "auth.api.router")
+api.add_router("auth/", "authentication.api.router")
 
 
 @api.get("/resource")
@@ -31,7 +31,7 @@ def resource(request):
 
 
 urlpatterns = [
-    path("auth/", include("auth.urls")),
+    path("auth/", include("authentication.urls")),
     path("admin/", admin.site.urls),
     path("", api.urls),
 ]

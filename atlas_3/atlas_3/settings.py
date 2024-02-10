@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "ninja",
     "atlas_3",
+    "authentication"
 ]
 
 MIDDLEWARE = [
