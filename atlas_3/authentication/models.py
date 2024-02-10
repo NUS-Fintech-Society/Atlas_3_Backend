@@ -34,7 +34,7 @@ class AtlasUser(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     department = models.CharField(max_length=50, choices=DepartmentNames.choices, blank=True)
-    profile_pic = models.ImageField(upload_to=profile_pic_path, default='profile/blank_profile.png')
+    profile_picture = models.ImageField(upload_to=profile_pic_path, default='profile/blank_profile.png')
     role = models.CharField(max_length=50, choices=Roles.choices, default=Roles.APPLICANT)
     telegram_handle = models.CharField(max_length=250, blank=True)
 
