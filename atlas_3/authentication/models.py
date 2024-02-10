@@ -27,9 +27,16 @@ class AtlasUser(models.Model):
         EXTERNAL_RELATIONS = "ER", _("External Relations")
         INTERNAL_AFFAIRS = "IA", _("Internal Affairs")
 
+    class Roles(models.TextChoices):
+        ADMIN = "ADMIN", _("Admin")
+        MEMBER = "MEMBER", _("Member")
+        APPLICANT = "APPLICANT", _("Applicant")
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     department = models.CharField(max_length=50, choices=DepartmentNames.choices, blank=True)
     profile_pic = models.ImageField(upload_to=profile_pic_path, default='profile/blank_profile.png')
+    role = models.CharField(max_length=50, choices=Roles.choices, default=Roles.APPLICANT)
+    telegram_handle = models.CharField(max_length=250, blank=True)
 
     def __str__(self):
         return f"{self.user.username} in {self.get_department_display()} department"
