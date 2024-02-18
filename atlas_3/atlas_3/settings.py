@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "ninja",
+    "django_extensions",
     "atlas_3",
+    "authentication"
 ]
 
 MIDDLEWARE = [
@@ -125,7 +127,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = os.path.normpath(str((BASE_DIR / "assets/").resolve())) + "/"
+
+STATIC_ROOT = "assets/"
+
+
+# User uploaded files
+# https://docs.djangoproject.com/en/5.0/topics/files/#managing-files
+
+MEDIA_ROOT = os.path.normpath(str((BASE_DIR / "uploads/").resolve())) + "/"
+
+MEDIA_URL = "uploads/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
