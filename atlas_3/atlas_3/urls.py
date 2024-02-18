@@ -32,9 +32,12 @@ def resource(request):
     return {"result": "Hello Django!"}
 
 
-urlpatterns = [
-    path("auth/", include("authentication.urls")),
-    path("admin/", admin.site.urls),
-    path("", api.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
-  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns = (
+    [
+        path("auth/", include("authentication.urls")),
+        path("admin/", admin.site.urls),
+        path("", api.urls),
+    ]
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+)
