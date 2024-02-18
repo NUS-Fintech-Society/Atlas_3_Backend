@@ -24,7 +24,11 @@ class Command(BaseCommand):
 
         user = User.objects.create_superuser("admin", "admin@example.com", "password")
         user.save()
-        admin_profile = AtlasUser(user=user, department=choice(list(AtlasUser.DepartmentNames)), role=AtlasUser.Roles.ADMIN)
+        admin_profile = AtlasUser(
+            user=user,
+            department=choice(list(AtlasUser.DepartmentNames)),
+            role=AtlasUser.Roles.ADMIN,
+        )
         admin_profile.save()
 
         if verbose:
@@ -35,7 +39,9 @@ class Command(BaseCommand):
                 f"user{i + 1}", f"user{i + 1}@example.com", "password"
             )
             user.save()
-            profile = AtlasUser(user=user, department=choice(list(AtlasUser.DepartmentNames)))
+            profile = AtlasUser(
+                user=user, department=choice(list(AtlasUser.DepartmentNames))
+            )
             profile.save()
             if verbose:
                 self.stdout.write(f"Created user {user.username} {user.email}")

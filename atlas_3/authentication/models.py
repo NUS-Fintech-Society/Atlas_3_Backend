@@ -13,7 +13,7 @@ def profile_pic_path(instance, filename: str) -> str:
     :param filename: original filename
     :return: relative path of profile picture from MEDIA_ROOT
     """
-    ext = filename.split('.')[-1]
+    ext = filename.split(".")[-1]
     return f"profile/{sha1(instance.user.username.encode()).hexdigest()}/{slugify(filename)}.{ext}"
 
 
@@ -33,9 +33,15 @@ class AtlasUser(models.Model):
         APPLICANT = "APPLICANT", _("Applicant")
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    department = models.CharField(max_length=50, choices=DepartmentNames.choices, blank=True)
-    profile_picture = models.ImageField(upload_to=profile_pic_path, default='profile/blank_profile.png')
-    role = models.CharField(max_length=50, choices=Roles.choices, default=Roles.APPLICANT)
+    department = models.CharField(
+        max_length=50, choices=DepartmentNames.choices, blank=True
+    )
+    profile_picture = models.ImageField(
+        upload_to=profile_pic_path, default="profile/blank_profile.png"
+    )
+    role = models.CharField(
+        max_length=50, choices=Roles.choices, default=Roles.APPLICANT
+    )
     telegram_handle = models.CharField(max_length=250, blank=True)
 
     def __str__(self):

@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "ninja",
     "django_extensions",
     "atlas_3",
-    "authentication"
+    "authentication",
 ]
 
 MIDDLEWARE = [
