@@ -127,7 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = os.path.normpath(str((BASE_DIR / "assets/").resolve())) + os.sep
+STATIC_URL = os.path.normpath(str((BASE_DIR / "assets/").resolve())) + "/"
 
 STATIC_ROOT = "assets/"
 
@@ -135,7 +135,7 @@ STATIC_ROOT = "assets/"
 # User uploaded files
 # https://docs.djangoproject.com/en/5.0/topics/files/#managing-files
 
-MEDIA_ROOT = os.path.normpath(str((BASE_DIR / "uploads/").resolve())) + os.sep
+MEDIA_ROOT = os.path.normpath(str((BASE_DIR / "uploads/").resolve())) + "/"
 
 MEDIA_URL = "uploads/"
 
