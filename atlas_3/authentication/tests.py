@@ -96,6 +96,7 @@ class AuthenticationTests(TestCase):
                 "first_name": self.user.first_name,
                 "last_name": self.user.last_name,
                 "email": self.user.email,
+                "profile_picture": self.user.atlasuser.profile_picture.url,
                 "department": self.user.atlasuser.department,
                 "role": self.user.atlasuser.role,
                 "telegram_handle": self.user.atlasuser.telegram_handle,
