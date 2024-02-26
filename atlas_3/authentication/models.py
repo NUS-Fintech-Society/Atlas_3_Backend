@@ -8,7 +8,8 @@ from hashlib import sha1
 
 def profile_pic_path(instance, filename: str) -> str:
     """
-    This function computes the path of where to store the profile picture
+    This function computes the path of where to store the profile picture.
+    Also obfuscates the filename against XSS attacks.
     :param instance: An instance of AtlasUser based on the current user
     :param filename: original filename
     :return: relative path of profile picture from MEDIA_ROOT
