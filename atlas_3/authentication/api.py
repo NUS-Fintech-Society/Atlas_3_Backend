@@ -19,6 +19,7 @@ def get_user(request):
         "first_name": request.user.first_name,
         "last_name": request.user.last_name,
         "email": request.user.email,
+        "profile_picture": atlas_user.profile_picture.url,
         "department": atlas_user.department,
         "role": atlas_user.role,
         "telegram_handle": atlas_user.telegram_handle,
